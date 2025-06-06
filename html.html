@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript String Methods</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f0f8ff;
+      color: #333;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .result {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 500px;
+    }
+
+    .result p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #1f618d;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript String Methods Explorer</h1>
+  <p>Type a word or sentence to see how JavaScript string methods work:</p>
+
+  <input type="text" id="inputText" placeholder="Enter text..." oninput="updateResults()">
+
+  <div class="result" id="demo">
+    <p>Waiting for input...</p>
+  </div>
+
+  <script>
+    function updateResults() {
+      let text = document.getElementById("inputText").value;
+      let result = "";
+
+      if (text.length === 0) {
+        result = "<p>Please enter some text above.</p>";
+      } else {
+        result += `<p><span class="label">Original:</span> ${text}</p>`;
+        result += `<p><span class="label">Uppercase:</span> ${text.toUpperCase()}</p>`;
+        result += `<p><span class="label">Lowercase:</span> ${text.toLowerCase()}</p>`;
+        result += `<p><span class="label">Includes 'Z':</span> ${text.includes("Z")}</p>`;
+        result += `<p><span class="label">Starts with 'z':</span> ${text.startsWith("z")}</p>`;
+        result += `<p><span class="label">Ends with 'g':</span> ${text.endsWith("g")}</p>`;
+        result += `<p><span class="label">Length:</span> ${text.length} characters</p>`;
+        result += `<p><span class="label">First Character:</span> ${text.charAt(0)}</p>`;
+        result += `<p><span class="label">Reversed:</span> ${text.split('').reverse().join('')}</p>`;
+      }
+
+      document.getElementById("demo").innerHTML = result;
+    }
+  </script>
+
+</body>
+</html>
